@@ -71,7 +71,10 @@ pc.script.create('card_placement', function (app) {
             return (null !== this.cardInfo);
         },
 
-        // Called every frame, dt is time in seconds since last update
+        /**
+         * Called every frame.
+         * @param dt {Number} The time (in seconds) since the last update.
+         */
         update: function (dt) {
             if (this.touching) {
                 this.buttonPressed = true;
