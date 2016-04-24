@@ -1,0 +1,60 @@
+[
+    {
+        "id": 0,
+        "name": "aggressive_secretary",
+        "player": "corporation",
+        "faction": "neutral",
+        "set": "basic",
+        "type": "asset",
+        "subType": "ambush",
+        "regions": ["asset"],
+        "cost": 0,
+        "title": "@AGGRESSIVE_SECRETARY",
+        "subTitle": "@NONE",
+        "rezCost": 0,
+        "trashCost": 0,
+        "strength": 0,
+        "minDeckSize": -1,
+        "influenceLimit": -1,
+        "advancement": -1,
+        "agendaPoints": 0,
+        "presentation": {
+            "texture": "netrunner_aggressive_secretary.png",
+            "layout": [
+                {
+                    "position": [0,0],
+                    "type": "title"
+                }
+            ]
+        }
+    },
+    {
+        "id": 1,
+        "name": "armitage_codebusting",
+        "player": "runner",
+        "faction": "neutral",
+        "set": "basic",
+        "type": "resource",
+        "subType": "job",
+        "regions": ["resources"],
+        "cost": 1,
+        "title": "@ARMITAGE_CODEBUSTING",
+        "subTitle": "@NONE",
+        "rezCost": 0,
+        "trashCost": 0,
+        "strength": 0,
+        "minDeckSize": -1,
+        "influenceLimit": -1,
+        "advancement": -1,
+        "agendaPoints": 0,
+        "presentation": {
+            "texture": "netrunner_aggressive_secretary.png",
+            "layout": [
+                {
+                    "position": [0,0],
+                    "type": "title"
+                }
+            ]
+        }
+    }
+]
