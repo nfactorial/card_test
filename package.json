@@ -1,0 +1,12 @@
+{
+    "name": "card_test",
+    "version": "1.0.0",
+    "description": "Code for PlayCanvas card_test game.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "server": "cd development && python -m SimpleHTTPServer 51000"
+    },
+    "author": "nfactorial",
+    "license": "ISC"
+}
