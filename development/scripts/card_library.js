@@ -13,12 +13,19 @@ pc.script.create('card_library', function (app) {
     // Creates a new Card_library instance
     var CardLibrary = function (entity) {
         this.entity = entity;
+        this.isBusy = false;
     };
 
     CardLibrary.prototype = {
         // Called once after all resources are loaded and before the first update
         initialize: function () {
-            var database = app.assets.get(this.cardDatabaseId);
+            var self = this;
+
+            pc.http.get('development/data/cards/basic_cards.json', function(err, response) {
+                console.log(response);
+            });
+
+//            var database = app.assets.get(this.cardDatabaseId);
         },
 
         // Called every frame, dt is time in seconds since last update
