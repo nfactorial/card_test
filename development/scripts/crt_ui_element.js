@@ -23,7 +23,7 @@ pc.script.create('crt_ui_element', function (app) {
         update: function (dt) {
             this.timer += dt;
 
-            this.material.setParameter('uPhaseShift', this.timer);
+            this.material.setParameter('uPhaseShift', this.timer * 6);
         }
     };
 

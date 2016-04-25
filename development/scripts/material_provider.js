@@ -69,7 +69,8 @@ pc.script.create('material_provider', function (app) {
             material.setParameter('uTexture', emissive);
             material.setParameter('uTransparency', 1.0);
             material.setParameter('uPhaseShift', 0.0);
-            material.setParameter('uFrequency', 64.0);
+            material.setParameter('uFrequency', 190.0);
+            material.setParameter('uPixelShift', 2.0);
 
             return material;
         },
