@@ -4,7 +4,7 @@
 | :---------------: |
 | ![lin-badge]      |
 
-[lin-badge]: https://travis-ci.org/nfactorial/card_test_.svg?branch=master "Travis build status"
+[lin-badge]: https://travis-ci.org/nfactorial/card_test.svg?branch=master "Travis build status"
 [lin-link]:  https://travis-ci.org/nfactorial/card_test "Travis build status"
 
 Card Test
