@@ -7,6 +7,8 @@ pc.script.create('material_provider', function (app) {
     var MaterialProvider = function (entity) {
         this.entity = entity;
         this.invalidMaterial = null;
+        this.shader = null;
+        this.crtShader = null;
     };
 
     MaterialProvider.prototype = {
@@ -14,21 +16,8 @@ pc.script.create('material_provider', function (app) {
          * Prepares the material provider for use by the application.
          **/
         initialize: function () {
-            var vertexShader = app.assets.find('card_shader_vert', 'shader').resources;
-            var fragmentShader = "precision " + app.graphicsDevice.precision + " float;\n";
-
-            fragmentShader = fragmentShader + app.assets.find('card_shader_frag', 'shader').resources;
-
-            var shaderDefinition = {
-                attributes: {
-                    aPosition: pc.gfx.SEMANTIC_POSITION,
-                    aNormal: pc.gfx.SEMANTIC_NORMAL,
-                    aUv0: pc.gfx.SEMANTIC_TEXCOORD0
-                },
-                vshader: vertexShader,
-                fshader: fragmentShader
-            };
-            this.shader = new pc.gfx.Shader(app.graphicsDevice, shaderDefinition);
+            this._createCardShader();
+            this._createCrtShader();
         },
 
         /**
@@ -41,6 +30,10 @@ pc.script.create('material_provider', function (app) {
             // TODO: Store the materials inside a map, so that we don't have to create a material for the
             // same card twice.
             return this._createCardMaterial(cardBack, cardDescription.asset);
+        },
+
+        getCrtMaterial: function(texture) {
+            return this._createCrtMaterial(texture);
         },
 
         /**
@@ -63,6 +56,59 @@ pc.script.create('material_provider', function (app) {
             material.setParameter('uTransparency', 1.0);
 
             return material;
+        },
+
+        _createCrtMaterial: function(texture) {
+            var material = new pc.Material();
+
+            material.setShader(this.crtShader);
+            material.blendType = pc.BLEND_ADDITIVE;
+
+            var emissive = app.assets.find(texture, 'texture').resources;
+
+            material.setParameter('uTexture', emissive);
+            material.setParameter('uTransparency', 1.0);
+            material.setParameter('uPhaseShift', 0.0);
+            material.setParameter('uFrequency', 64.0);
+
+            return material;
+        },
+
+        _createCardShader: function() {
+            var vertexShader = app.assets.find('card_shader_vert', 'shader').resources;
+            var fragmentShader = "precision " + app.graphicsDevice.precision + " float;\n";
+
+            fragmentShader = fragmentShader + app.assets.find('card_shader_frag', 'shader').resources;
+
+            var shaderDefinition = {
+                attributes: {
+                    aPosition: pc.gfx.SEMANTIC_POSITION,
+                    aNormal: pc.gfx.SEMANTIC_NORMAL,
+                    aUv0: pc.gfx.SEMANTIC_TEXCOORD0
+                },
+                vshader: vertexShader,
+                fshader: fragmentShader
+            };
+
+            this.shader = new pc.gfx.Shader(app.graphicsDevice, shaderDefinition);
+        },
+
+        _createCrtShader: function() {
+            var vertexShader = app.assets.find('crt_scan_vert', 'shader').resources;
+            var fragmentShader = "precision " + app.graphicsDevice.precision + " float;\n";
+
+            fragmentShader = fragmentShader + app.assets.find('crt_scan_frag', 'shader').resources;
+
+            var shaderDefinition = {
+                attributes: {
+                    aPosition: pc.gfx.SEMANTIC_POSITION,
+                    aUv0: pc.gfx.SEMANTIC_TEXCOORD0
+                },
+                vshader: vertexShader,
+                fshader: fragmentShader
+            };
+
+            this.crtShader = new pc.gfx.Shader(app.graphicsDevice, shaderDefinition);
         }
     };
 
