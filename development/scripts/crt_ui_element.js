@@ -1,6 +1,6 @@
 pc.script.attribute('frequency', 'number', 64.0);
 pc.script.attribute('phaseShift', 'number', 0.0);
-pc.script.attribute('texture', 'asset', [], {
+pc.script.attribute('texture', 'asset', null, {
     displayName: 'Texture',
     type: 'texture'
 });
