@@ -25,3 +25,9 @@ To run the unit tests you must also install mocha:
 ```
 npm install -g mocha
 ```
+
+Once mocha is installed, the unit tests can be run with:
+
+```
+npm run test
+```
