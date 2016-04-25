@@ -19,3 +19,9 @@ git clone https://github.com/nfactorial/card_test
 npm install
 npm run server
 ```
+
+To run the unit tests you must also install mocha:
+
+```
+npm install -g mocha
+```
