@@ -71,6 +71,7 @@ pc.script.create('material_provider', function (app) {
             material.setParameter('uPhaseShift', 0.0);
             material.setParameter('uFrequency', 190.0);
             material.setParameter('uPixelShift', 2.0);
+            material.setParameter('uAnimated', 1.0);
 
             return material;
         },
