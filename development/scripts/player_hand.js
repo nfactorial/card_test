@@ -343,7 +343,7 @@ pc.script.create('player_hand', function (app) {
                 //var dz = Math.sin(itemAngle * (Math.PI / 180));
 
                 item.entity.setLocalPosition(x + dx*self.cardPush, y, dz*(self.cardPush+item.dz*0.2));
-                item.entity.setLocalEulerAngles(180.0, itemAngle, 0.0);
+                item.entity.setLocalEulerAngles(0.0, itemAngle, 0.0);
 
                 x += item.slotSize * xStep;
                 angle -= item.slotSize * aStep;
@@ -475,7 +475,6 @@ pc.script.create('player_hand', function (app) {
                 if (this.cards[loop] === cardInfo) {
                     this.entity.removeChild(cardInfo.entity);
                     this.cards.splice(loop, 1);
-                    console.log('card removed');
                     return;
                 }
             }

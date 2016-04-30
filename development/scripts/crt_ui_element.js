@@ -39,7 +39,7 @@ pc.script.create('crt_ui_element', function (app) {
             this.material = this.materialProvider._createCrtMaterial("play_button.png");
             //this.material.setParameter('uTransparency', 1.0);
 
-            //this.entity.setLocalEulerAngles(180.0, 0.0, 0.0);
+            //this.entity.setLocalEulerAngles(0.0, 0.0, 0.0);
             this.entity.model.model.meshInstances[0].material = this.material;
         },
 

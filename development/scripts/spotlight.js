@@ -31,9 +31,9 @@ pc.script.create('spotlight', function (app) {
             var ta = Math.sin(a) * this.spread;
             this.entity.rotate(ta, 0, 0);
 
-            var t = Math.sin(a) * this.spread * 16;
-            var u = Math.cos(a) * this.spread * 8;
-            this.entity.setLocalPosition(this.rootPosition.x + t, this.rootPosition.y + u, this.rootPosition.z + u);
+            var t = Math.sin(a) * this.spread * 8;
+            var u = Math.cos(a) * this.spread * 2;
+            this.entity.setLocalPosition(this.rootPosition.x + t, this.rootPosition.y, this.rootPosition.z + u);
 
             /*var distance = 3;
              this.position.x = Math.cos(a)*distance;

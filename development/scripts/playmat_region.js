@@ -32,7 +32,7 @@ PlaymatRegion.prototype.addCard = function(cardPlacement, cardInfo) {
     if (this.slots === 1 || (this.slots > 1 && this.cards.length < this.slots)) {
         var rotationZ = this.frontFace ? 360 : 180;
         var rotationY = 0.0;
-        var rotationX = 180;
+        var rotationX = 0;
 
         cardPlacement.removeCard(cardInfo);
 

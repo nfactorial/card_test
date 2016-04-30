@@ -31,7 +31,7 @@ pc.script.create('card_preview', function (app) {
             this.material = this.materialProvider._createCardMaterial("netrunner_cardback.jpeg", "netrunner_cardback.jpeg");
             this.material.setParameter('uTransparency', 1.0);
 
-            //this.entity.setLocalEulerAngles(180.0, 0.0, 0.0);
+            //this.entity.setLocalEulerAngles(0.0, 0.0, 0.0);
             this.entity.model.model.meshInstances[0].material = this.material;
         },
 

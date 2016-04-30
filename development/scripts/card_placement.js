@@ -151,7 +151,7 @@ pc.script.create('card_placement', function (app) {
 
             this.cardInfo.entity.enabled = true;
             this.cardInfo.entity.setPosition(this.entity.getPosition());
-            this.cardInfo.entity.setEulerAngles(180,0,0);
+            this.cardInfo.entity.setEulerAngles(0,0,0);
 
             this.setActiveCard(null, null);
         },
@@ -202,7 +202,7 @@ pc.script.create('card_placement', function (app) {
                     //       the mouse is hovering over, and apply any 'Available' animation
                     //       if the zone is appropriate for the card being held.
 
-                    this.entity.setLocalEulerAngles(180,0,0);    // TODO: Based on movement speed, adjust the angle of the card
+                    this.entity.setLocalEulerAngles(0,0,0);    // TODO: Based on movement speed, adjust the angle of the card
                     this.entity.setLocalPosition(cameraPos.x + rayDirection.x*t, cameraPos.y + rayDirection.y*t, cameraPos.z + rayDirection.z*t);
                 }
             } else {
