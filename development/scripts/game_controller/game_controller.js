@@ -26,7 +26,11 @@ var GameController = function() {
  * @param url
  */
 GameController.prototype.connect = function(url) {
-    this.server = new ServerConnection(this, url);
+    if (!this.server) {
+        this.server = new ServerConnection( this, url );
+    } else {
+        console.log('WARN: GameController.connect - Method called multiple times.');
+    }
 };
 
 

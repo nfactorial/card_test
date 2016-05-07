@@ -30,6 +30,7 @@ var ServerConnection = function(gameController, url) {
  * Function called when we have established a connection to our server
  */
 ServerConnection.prototype.onConnected = function() {
+    console.log('Connection to server established.');
     this.isConnected = true;
     this.gameController.emit(GAME_EVENTS.CONNECTED);
 };
@@ -38,6 +39,7 @@ ServerConnection.prototype.onConnected = function() {
  * Function called when we have been disconnected from the server.
  */
 ServerConnection.prototype.onDisconnect = function() {
+    console.log('Disconnected from server.');
     this.isConnected = false;
     this.gameController.emit(GAME_EVENTS.DISCONNECT);
 };
@@ -47,5 +49,6 @@ ServerConnection.prototype.onDisconnect = function() {
  * @param e {Object} Description of the event we have received.
  */
 ServerConnection.prototype.onMessage = function(e) {
+    console.log('Server message received.');
     //
 };
