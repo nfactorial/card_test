@@ -23,10 +23,11 @@ var GameController = function() {
 
 /**
  * Attempts to connect to the remote server.
- * @param url
+ * @param url {String} Address of game server to connect to.
  */
 GameController.prototype.connect = function(url) {
     if (!this.server) {
+        // TODO: Take constructor function as parameter, to allow for mocking
         this.server = new ServerConnection( this, url );
     } else {
         console.log('WARN: GameController.connect - Method called multiple times.');
@@ -56,7 +57,9 @@ GameController.prototype.subscribe = function(event, callback, obj) {
  */
 GameController.prototype.unsubscribe = function(event, callback, obj) {
     if(this.listeners[event]) {
-        //
+        this.listeners = this.listeners.filter(function(item) {
+            return (item.cb !== callback || item.o !== obj);
+        });
     }
 };
 
