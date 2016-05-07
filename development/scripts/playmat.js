@@ -85,16 +85,6 @@ pc.script.create('playmat', function (app) {
                 data.regions.forEach(function(item) {
                     var region = new PlaymatRegion(item);
 
-                    /*                    var region = {
-                     name: item.name,
-                     position: item.position,
-                     size: item.size,
-                     frontFace: item.frontFace,
-                     slots: item.slots,
-                     separation: item.separation,
-                     cards: []
-                     };
-                     */
                     self.regionMap[item.name] = region;
                     self.regionList.push(region);
                 });

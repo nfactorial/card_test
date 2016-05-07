@@ -221,7 +221,7 @@ pc.script.create( 'card', function( app ) {
          * @param rotationX {Number} The desired rotation around the X axis.
          * @param rotationY {Number} The desired rotation around the Y axis.
          * @param rotationZ {Number} The desired rotation around the Z axis.
-         * @param position {Vec3} The desired world position for the card.
+         * @param position {pc.Vec3} The desired world position for the card.
          * @param animationType {String} The type of animation to be performed.
          * @returns {Boolean} True if the animation target was set successfully otherwise false.
          **/

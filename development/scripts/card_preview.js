@@ -1,4 +1,11 @@
-pc.script.attribute('speed', 'number', 0.25);
+pc.script.attribute('speed', 'number', 0.25, {
+    min: 0,
+    max: 10,
+    step: 0.25,
+    decimalPrecision: 2,
+    displayName: 'Speed',
+    description: 'The time (in seconds) for the appear and disappear animations.'
+});
 
 pc.script.create('card_preview', function (app) {
     var PREVIEW_STATE = {
