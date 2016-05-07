@@ -7,7 +7,13 @@ pc.script.create('main_menu', function (app) {
 
     MainMenu.prototype = {
         initialize: function () {
-            CARD_GAME.connect(this.serverAddress);
+            var servers = {
+                'local': 'http://localhost:2000/socket',
+                'default': 'http://localhost:2000/socket'
+            };
+
+            //CARD_GAME.connect(this.serverAddress);
+            CARD_GAME.connect(servers['local']);
         },
 
         update: function (dt) {

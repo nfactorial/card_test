@@ -10,6 +10,7 @@ var ServerConnection = function(gameController, url) {
     this.gameController = gameController;
     this.isConnected = false;
     this.url = url;
+    console.log('Attempting connection to ' + url);
     this.socket = new SockJS(url);
 
     var self = this;
