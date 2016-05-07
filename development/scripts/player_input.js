@@ -56,7 +56,7 @@ pc.script.create('player_input', function (app) {
         },
 
         /**
-         * Called in responce to the user moving the mouse around the game area.
+         * Called in response to the user moving the mouse around the game area.
          * @param e {Event} Description of the mouse move event.
          **/
         onMouseMove: function(e) {
