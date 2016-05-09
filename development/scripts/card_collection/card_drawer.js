@@ -46,6 +46,32 @@ pc.script.create('card_drawer', function (app) {
             }
         },
 
+        beginSlideIn: function() {
+            if(this.state !== DRAWER_STATE.IDLE) {
+                return false;
+            }
+
+            this.entity.setPosition(-this.distance,0,0);
+
+            this.timer = 0.0;
+            this.state = DRAWER_STATE.SLIDE_IN;
+
+            return true;
+        },
+
+        beginSlideOut: function() {
+            if(this.state !== DRAWER_STATE.IDLE) {
+                return false;
+            }
+
+            this.entity.setPosition(0,0,0);
+
+            this.timer = 0.0;
+            this.state = DRAWER_STATE.SLIDE_OUT;
+
+            return true;
+        },
+
         updateSlideIn: function() {
             if(this.timer > this.speed) {
                 this.state = DRAWER_STATE.IDLE;
