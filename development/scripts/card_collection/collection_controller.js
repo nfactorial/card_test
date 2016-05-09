@@ -8,6 +8,15 @@ pc.script.attribute('drawerB', 'entity', null, {
     description: 'Entity that represents the second drawer in the collection manager,'
 });
 
+/**
+ * This script manages the page display of the players card collection.
+ * Each page contains a set of cards and the player may moev to the previous
+ * or next page to traverse their list of available playing cards.
+ *
+ * Cards are presented on sliding 'drawers' within the view, the drawer entities
+ * must be assigned to the controller within the PlayCanvas editor before the
+ * script can be functional.
+ */
 pc.script.create('collection_controller', function (app) {
     var CollectionController = function(entity) {
         this.entity = entity;
@@ -61,5 +70,5 @@ pc.script.create('collection_controller', function (app) {
         },
     };
 
-    return CardDrawer;
+    return CollectionController;
 });
