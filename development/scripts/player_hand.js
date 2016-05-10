@@ -490,8 +490,8 @@ pc.script.create('player_hand', function (app) {
             // TODO: Should not be calling the private method, instead call getMaterial (once we have a card-description object).
             var material = this.materialProvider._createCardMaterial("netrunner_cardback.jpeg", CARD_TEXTURES[textureIndex]);
 
-            entity.model.model.meshInstances[0].material = material;
             entity.enabled = true;
+            entity.model.model.meshInstances[0].material = material;
 
             entity.script.card.slotIndex = this.cards.length;
 

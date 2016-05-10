@@ -3,6 +3,26 @@ pc.script.attribute('speed', 'number', 2.0, {
 });
 
 pc.script.create('card_drawer', function (app) {
+    // TODO: Grab card definition from CardLibrary
+    var CARD_TEXTURES = [
+        'netrunner_aggressive_secretary.png',
+        'netrunner_atman.png',
+        'netrunner_beta_test.png',
+        'netrunner_bodysuit.png',
+        'netrunner_director_haas.png',
+        'netrunner_femme_fatale.png',
+        'netrunner_frame_job.png',
+        'netrunner_hostage.png',
+        'netrunner_incubator.png',
+        'netrunner_retirement.png',
+        'netrunner_scavenge.png',
+        'netrunner_singularity.png',
+        'netrunner_snare.png',
+        'netrunner_transaction.png'
+    ];
+
+    var CARD_BACK_TEXTURE = "netrunner_cardback.jpeg";
+
     var DRAWER_STATE = {
         IDLE: 'IDLE',
         SLIDE_IN: 'SLIDE_IN',
@@ -21,10 +41,15 @@ pc.script.create('card_drawer', function (app) {
         this.distance = 10.5;
         this.yPosition = 2;
         this.dropDistance = 2;
+        this.materialProvider = null;
     };
 
     CardDrawer.prototype = {
         initialize: function () {
+            this.materialProvider = app.root.getChildren()[0].script.material_provider;
+            console.log(this.materialProvider);
+
+            this.preparePage(); // TEMP: Should be called from collection controller
         },
 
         update: function (dt) {
@@ -50,6 +75,32 @@ pc.script.create('card_drawer', function (app) {
                     this.updateSlideUp();
                     break;
             }
+        },
+
+        preparePage: function() {
+            var self = this;
+
+            var children = this.entity.getChildren();
+            var cardIndex = 0;
+            console.log(children);
+            children.forEach(function(e) {
+                console.log(e);
+                if (e.script && e.script.card) {
+                    if (cardIndex < CARD_TEXTURES.length) {
+                        e.enabled = true;
+
+                        var material = self.materialProvider._createCardMaterial(CARD_BACK_TEXTURE, CARD_TEXTURES[cardIndex]);
+
+                        e.model.model.meshInstances[0].material = material;
+                            
+                        // If card is not available, set gray-scale shader
+
+                        cardIndex++;
+                    } else {
+                        e.enabled = false;
+                    }
+                }
+            });
         },
 
         /**
