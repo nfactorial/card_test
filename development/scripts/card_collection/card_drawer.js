@@ -47,7 +47,6 @@ pc.script.create('card_drawer', function (app) {
     CardDrawer.prototype = {
         initialize: function () {
             this.materialProvider = app.root.getChildren()[0].script.material_provider;
-            console.log(this.materialProvider);
 
             this.preparePage(); // TEMP: Should be called from collection controller
         },
@@ -82,9 +81,8 @@ pc.script.create('card_drawer', function (app) {
 
             var children = this.entity.getChildren();
             var cardIndex = 0;
-            console.log(children);
+
             children.forEach(function(e) {
-                console.log(e);
                 if (e.script && e.script.card) {
                     if (cardIndex < CARD_TEXTURES.length) {
                         e.enabled = true;
