@@ -11,8 +11,7 @@
   "author": "nfactorial",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4",
-    "sockjs": "^0.3.17"
+    "@nfactorial/playcanvas_server": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0"
