@@ -15,6 +15,7 @@
         _fb = true;
 
         if (_fb && app) {
+            console.log('fbAsyncInit - fb:init');
             app.fire("fb:init");
         }
     };
@@ -22,6 +23,7 @@
     app = pc.Application.getApplication();
     app.on("initialize", function () {
         if (_fb) {
+            console.log('app initialize - fb:init');
             app.fire("fb:init");
         }
     });
